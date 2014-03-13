@@ -53,6 +53,8 @@ Bundle 'molokai'
 Bundle 'rosenfeld/conque-term'
 " Pending tasks list
 Bundle 'fisadev/FixedTaskList.vim'
+"Multiple cursors for vim (like in sublime-text)
+Bundle 'terryma/vim-multiple-cursors'
 " Surround
 Bundle 'tpope/vim-surround'
 " Autoclose
@@ -319,6 +321,13 @@ endif
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
+
+" vim-multiple-cursors settings
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " vim-airline settings
 let g:airline_powerline_fonts = 1 

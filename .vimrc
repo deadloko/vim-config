@@ -96,7 +96,8 @@ Bundle 'matchit.zip'
 Bundle 'Wombat'
 " Yank history navigation
 Bundle 'YankRing.vim'
-
+" header/source
+Bundle 'vim-scripts/a.vim'
 " Installing plugins the first time
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -263,6 +264,8 @@ let g:neocomplcache_min_syntax_length = 1
 " complete with workds from any opened file
 let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
+
+let g:EclimCompletionMethod = 'omnifunc'
 
 " rope (from python-mode) settings
 nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>

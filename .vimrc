@@ -65,7 +65,7 @@ Bundle 'michaeljsmith/vim-indent-object'
 " operators, highlighting, run and ipdb breakpoints)
 Bundle 'klen/python-mode'
 " Better autocompletion
-Bundle 'Shougo/neocomplcache.vim'
+" Bundle 'Shougo/neocomplcache.vim'
 " Snippets manager (SnipMate), dependencies, and snippets repo
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -96,8 +96,14 @@ Bundle 'matchit.zip'
 Bundle 'Wombat'
 " Yank history navigation
 Bundle 'YankRing.vim'
-" header/source
-Bundle 'vim-scripts/a.vim'
+Bundle 'jansenm/vim-cmake'
+" YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'rdnetto/YCM-Generator'
+Bundle 'rust-lang/rust.vim'
+Bundle 'KabbAmine/zeavim.vim'
+Bundle 'rhysd/vim-clang-format'
+
 " Installing plugins the first time
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -229,6 +235,18 @@ nmap ,r :RecurGrepFast
 nmap ,wR :RecurGrep <cword><CR>
 nmap ,wr :RecurGrepFast <cword><CR>
 
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
 " python-mode settings
 " don't show lint result every time we save a file
 let g:pymode_lint_on_write = 0
@@ -266,6 +284,7 @@ let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
 
 let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_rust_src_path = '/home/death/Downloads/rustc-1.7.0'
 
 " rope (from python-mode) settings
 nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
@@ -357,3 +376,7 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
+
+let g:zv_file_types = {
+            \ 'c' : 'glibc,c'
+            \}

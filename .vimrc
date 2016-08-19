@@ -94,16 +94,16 @@ Bundle 'IndexedSearch'
 Bundle 'matchit.zip'
 " Gvim colorscheme
 Bundle 'Wombat'
-" Yank history navigation
-Bundle 'YankRing.vim'
 Bundle 'jansenm/vim-cmake'
 " YouCompleteMe
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'rdnetto/YCM-Generator'
 Bundle 'rust-lang/rust.vim'
 Bundle 'KabbAmine/zeavim.vim'
+Bundle 'kana/vim-operator-user'
 Bundle 'rhysd/vim-clang-format'
-
+Bundle 'AndrewRadev/linediff.vim'
+Bundle 'motemen/git-vim'
 " Installing plugins the first time
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -235,11 +235,6 @@ nmap ,r :RecurGrepFast
 nmap ,wR :RecurGrep <cword><CR>
 nmap ,wr :RecurGrepFast <cword><CR>
 
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
